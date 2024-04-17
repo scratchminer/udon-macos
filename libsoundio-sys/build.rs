@@ -82,6 +82,9 @@ fn main() {
         .define("BUILD_STATIC_LIBS", "ON")
         .define("BUILD_EXAMPLE_PROGRAMS", "OFF")
         .define("BUILD_TESTS", "OFF")
+        .define("ENABLE_PULSEAUDIO", "OFF")
+        .define("ENABLE_JACK", "OFF")
+        .define("ENABLE_ALSA", "OFF")
         .build();
 
     println!(
