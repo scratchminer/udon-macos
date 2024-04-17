@@ -68,11 +68,9 @@ fn main() {
     }
 
     if cfg!(unix) {
-        let alsa = pkg_config::probe_library("alsa").unwrap();
         let libpulse = pkg_config::probe_library("libpulse").unwrap();
         let jack = pkg_config::probe_library("jack").unwrap();
-        for lib in alsa.libs.iter()
-            .chain(libpulse.libs.iter())
+        for lib in libpulse.libs.iter()
             .chain(jack.libs.iter())
         {
             println!("cargo:rustc-link-lib={}", lib);
