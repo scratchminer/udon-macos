@@ -68,13 +68,6 @@ fn main() {
     }
 
     if cfg!(unix) {
-        let libpulse = pkg_config::probe_library("libpulse").unwrap();
-        let jack = pkg_config::probe_library("jack").unwrap();
-        for lib in libpulse.libs.iter()
-            .chain(jack.libs.iter())
-        {
-            println!("cargo:rustc-link-lib={}", lib);
-        }
         println!("cargo:rustc-link-lib=stdc++");
     }
 
